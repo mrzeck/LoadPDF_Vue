@@ -4,18 +4,18 @@
 			<div>
 				<div class="brand w-100 bg-white d-flex align-items-center ps-3 sticky-top" style="height: 78px; justify-content: space-between; ">
 					<img src="https://mythaco.vn/static/media/logo_thaco.498c4500.svg" width="166" alt="" srcset="">
-                    <button @click="slideMenu" style="background: none; border: 0; padding-right: 1rem; display: flex;"> 
-						<span class="material-icons-round">format_list_bulleted</span>
+                    <button @click="slideMenu" style="background: none; border: 0; padding-right: 1rem; display: flex; scale: 1.5;"> 
+						<i class="ti ti-list"></i>
 					</button>
 				</div>
                 <div :class="{ show: sidebar_menu }" class="menu-hide col-lg-2" style="background-color: white;width:100%; justify-content: space-between; height: calc(100vh - 78px); display: flex; flex-direction: column;">
 					<div class="accordion" id="accordionPanelsStayOpenExample">
 						<div style="height: 1px; background-color: #f4f4f4;">
 						</div>
-						<div class="accordion-item border-0" style="padding-left: 25px; padding-right: 25px;">
+						<div class="accordion-item border-0 list-list-title">
 							<h2 class="accordion-header border-0" >
-							<button class="accordion-button px-0 py-3" style="background:none!important" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-								<span class="material-icons-outlined">description</span> <p style="margin: unset; margin-left: 10px;">File PDF</p>
+							<button class="accordion-button px-0 py-3 title collapsed" style="background:none!important;" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+								<i style="scale: 1.5;" class="ti ti-file-description"></i><p style="margin: unset; margin-left: 10px;">File PDF</p>
 							</button>
 							</h2>
 							<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
@@ -28,10 +28,10 @@
 							</div>
 							</div>
 						</div>
-						<div class="accordion-item border-0" style="padding-left: 25px; padding-right: 25px;">
+						<div class="accordion-item border-0 list-list-title">
 							<h2 class="accordion-header border-0" >
-							<button class="accordion-button px-0 py-3" style="background:none!important" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne1" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-								<span class="material-icons-outlined">description</span> <p style="margin: unset; margin-left: 10px;">File PDF</p>
+							<button class="accordion-button px-0 py-3 title collapsed" style="background:none!important" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne1" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+								<i style="scale: 1.5;" class="ti ti-file-description"></i><p style="margin: unset; margin-left: 10px;">File PDF</p>
 							</button>
 							</h2>
 							<div id="panelsStayOpen-collapseOne1" class="accordion-collapse collapse">
@@ -45,14 +45,6 @@
 							</div>
 						</div>
 					</div>
-                    <ul>
-                        <li class="nav-item" style="margin-bottom: 20px;">
-                            <a class="title" style="text-decoration: none;"  href="https://apps.apple.com/us/app/my-thaco/id1660844894"><i class="bi bi-apple icon-app"></i> App Store</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="title" style="text-decoration: none;" href="https://play.google.com/store/apps/details?id=vn.com.thaco.mythaco&hl=en&gl=US"><i class="bi bi-google-play icon-app"></i>Google Play</a>
-                        </li>
-                    </ul>
                 </div>
 			</div>
 		</div>
@@ -61,39 +53,25 @@
 				<div>&nbsp;</div>
 				<div>
 					<ul class="list-group list-group-horizontal">
-						<li class="px-2" style="margin: auto;">
-							<a href="#"><span class="material-icons-outlined">home</span></a>
+						<li class="px-2" style="margin: auto; scale: 1.5;">
+							<a href="#" style="text-decoration: none;"><i class="ti ti-home-2"></i></a>
 						</li>
-						<li class="px-2" style="margin-left: 15px;">
-							<div class="dropdown">
-							<button class="btn dropdown-toggle title" type="button" data-bs-toggle="dropdown" aria-expanded="false">GIỚI THIỆU</button>
-							<ul class="dropdown-menu" style="border-radius: 0; border: 0; min-width: 215px;">
+						<li class="px-2 dropdown">
+							<a @mouseover="slideMenu1" class="btn title" type="button" data-bs-toggle="dropdown" aria-expanded="false">TRANG CHỦ</a>
+							<ul :class="{ show: sidebar_menu1 }" class="menu-hide1">
 								<li><a class="dropdown-item" href="#">Action</a></li>
 								<li><a class="dropdown-item" href="#">Another action</a></li>
 								<li><a class="dropdown-item" href="#">Something else here</a></li>
 							</ul>
-							</div>
-						</li>
-						<li class="px-2">
-							<div class="dropdown">
-							<button class="btn dropdown-toggle title" type="button" data-bs-toggle="dropdown" aria-expanded="false">TRUYỀN THÔNG</button>
-							<ul class="dropdown-menu" style="border-radius: 0; border: 0; min-width: 215px;">
-								<li><a class="dropdown-item" href="#">Action</a></li>
-								<li><a class="dropdown-item" href="#">Another action</a></li>
-								<li>
-								<a class="dropdown-item" href="#">Something else here</a>
-								</li>
-							</ul>
-							</div>
 						</li>
 					</ul>
 				</div>
 				<div>
 					<ul class="list-group list-group-horizontal" style="align-items: center;">
-						<li class="px-2"><button style="border:0; background: none;" ><span class="material-icons-outlined">search</span></button></li>
-						<li class="px-2"><button style="border:0; background: none;" ><span class="material-icons-outlined">chat</span></button></li>
-						<li class="px-2"><button style="border:0; background: none;" ><span class="material-icons-outlined">notifications</span></button></li>
-						<li class="px-2"><button style="border:0; background: none;"><span class="material-icons-outlined">account_circle</span></button></li>
+						<li class="px-2"><button style="border:0; background: none; scale: 1.5"><i class="ti ti-search"></i></button></li>
+						<li class="px-2"><button style="border:0; background: none; scale: 1.5"><i class="ti ti-message-circle-2"></i></button></li>
+						<li class="px-2"><button style="border:0; background: none; scale: 1.5"><i class="ti ti-bell"></i></button></li>
+						<li class="px-2"><button style="border:0; background: none; scale: 1.5"><i class="ti ti-user"></i></button></li>
 					</ul>
 				</div>
 			</div>
@@ -134,39 +112,43 @@
 					<div class="col-lg-3">
 						<div class="card">
 							<div class="card-body" style="height: 300px;">
-								page 1
+								page 5
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-3">
 						<div class="card">
 							<div class="card-body" style="height: 300px;">
-								page 2
+								page 6
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-3">
 						<div class="card">
 							<div class="card-body" style="height: 300px;">
-								page 3
+								page 7
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-3">
 						<div class="card">
 							<div class="card-body" style="height: 300px;">
-								page 4
+								page 8
 							</div>
 						</div>
 					</div>
 					
 				</div>
 			</div>
+			<div class="container-fluid" style="font-size: 14px;">
+				<p>Bản quyền Công ty Cổ phần Tập đoàn Trường Hải © 2023</p>
+			</div>
 		</div>
 	</div>
 </template>
 
 <style lang="scss">
+	
     li {
         list-style: none;
     }
@@ -175,9 +157,9 @@
 		color: #707070;
 	}
 
-	.dropdown:hover .dropdown-menu {
-   		display: block;
-   		margin-top: 0; 
+	.list-list-title {
+		padding-left: 25px; 
+		padding-right: 25px;
 	}
 
 	.col-md-auto:hover {
@@ -191,6 +173,13 @@
 
 	.dropdown-toggle::after {
 		border-top: 0;
+	}
+
+	.px-2.dropdown > ul {
+		padding-left: 1rem;
+		li {
+			padding: 10px;
+		}
 	}
 
 	.accordion-button {
@@ -250,11 +239,28 @@
         }
     }
 
-    .menu-icon {
+	.menu-hide1 {
+		width: 200px;
+		position: absolute;
+        opacity: 0;
+        z-index: -9;
+		top: 58px;
+        transition: 0.3s ease-in-out;
+        transform: translateY(50px);
         &.show {
-            display: block;
+			width: 200px;
+			height: 150px;
+			position: absolute;
+			background-color: white;
+			top: 58px;
+            opacity: 1;
+            z-index: 1;
+            transition: 0.3s ease-in-out;
+            transform: translateY(0);
         }
     }
+
+
 </style>
 
 <script>
@@ -264,6 +270,7 @@
         data() {
             return {
                 sidebar_menu: true,
+				sidebar_menu1: false,
             };
         },
         mounted() {},
@@ -271,6 +278,9 @@
         methods: {
             slideMenu(e) {
                 this.sidebar_menu = !this.sidebar_menu;
+            },
+			slideMenu1(e) {
+                this.sidebar_menu1 = !this.sidebar_menu1;
             },
         },
     };
