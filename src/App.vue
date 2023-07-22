@@ -21,7 +21,7 @@ export default {
 
 *{
   font-family: "Myriad Pro",sans-serif;
-  color: #707070;
+  color: #333;
   font-weight: 400;
 }
 </style>

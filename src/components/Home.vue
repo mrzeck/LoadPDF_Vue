@@ -4,18 +4,18 @@
 			<div>
 				<div class="brand w-100 bg-white d-flex align-items-center ps-3 sticky-top" style="height: 78px; justify-content: space-between; ">
 					<img src="https://mythaco.vn/static/media/logo_thaco.498c4500.svg" width="166" alt="" srcset="">
-                    <button @click="slideMenu" style="background: none; border: 0; padding-right: 1rem; display: flex;"> 
-						<span class="material-icons-round">format_list_bulleted</span>
+                    <button @click="slideMenu" style="background: none; border: 0; padding-right: 1rem; display: flex; scale: 1.5;"> 
+						<i class="ti ti-list"></i>
 					</button>
 				</div>
                 <div :class="{ show: sidebar_menu }" class="menu-hide col-lg-2" style="background-color: white;width:100%; justify-content: space-between; height: calc(100vh - 78px); display: flex; flex-direction: column;">
 					<div class="accordion" id="accordionPanelsStayOpenExample">
 						<div style="height: 1px; background-color: #f4f4f4;">
 						</div>
-						<div class="accordion-item border-0" style="padding-left: 25px; padding-right: 25px;">
+						<div class="accordion-item border-0 list-list-title">
 							<h2 class="accordion-header border-0" >
-							<button class="accordion-button px-0 py-3" style="background:none!important" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-								<span class="material-icons-outlined">description</span> <p style="margin: unset; margin-left: 10px;">File PDF</p>
+							<button class="accordion-button px-0 py-3 title collapsed" style="background:none!important;" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+								<i style="scale: 1.5;" class="ti ti-file-description"></i><p style="margin: unset; margin-left: 10px;">File PDF</p>
 							</button>
 							</h2>
 							<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
@@ -28,10 +28,10 @@
 							</div>
 							</div>
 						</div>
-						<div class="accordion-item border-0" style="padding-left: 25px; padding-right: 25px;">
+						<div class="accordion-item border-0 list-list-title">
 							<h2 class="accordion-header border-0" >
-							<button class="accordion-button px-0 py-3" style="background:none!important" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne1" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-								<span class="material-icons-outlined">description</span> <p style="margin: unset; margin-left: 10px;">File PDF</p>
+							<button class="accordion-button px-0 py-3 title collapsed" style="background:none!important" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne1" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+								<i style="scale: 1.5;" class="ti ti-file-description"></i><p style="margin: unset; margin-left: 10px;">File PDF</p>
 							</button>
 							</h2>
 							<div id="panelsStayOpen-collapseOne1" class="accordion-collapse collapse">
@@ -45,55 +45,34 @@
 							</div>
 						</div>
 					</div>
-                    <ul>
-                        <li class="nav-item" style="margin-bottom: 20px;">
-                            <a class="title" style="text-decoration: none;"  href="https://apps.apple.com/us/app/my-thaco/id1660844894"><i class="bi bi-apple icon-app"></i> App Store</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="title" style="text-decoration: none;" href="https://play.google.com/store/apps/details?id=vn.com.thaco.mythaco&hl=en&gl=US"><i class="bi bi-google-play icon-app"></i>Google Play</a>
-                        </li>
-                    </ul>
                 </div>
 			</div>
 		</div>
 		<div class="content flex-grow-1" style="background: #f4f4f4;">
-			<div class="wrapper-content w-100 bg-white d-flex align-items-center justify-content-between sticky-top" style="height: 78px; z-index: 99;">
+			<div class="wrapper-content w-100 bg-white d-flex align-items-center justify-content-between sticky-top" style="height: 78px; z-index: 99; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
 				<div>&nbsp;</div>
 				<div>
 					<ul class="list-group list-group-horizontal">
-						<li class="px-2" style="margin: auto;">
-							<a href="#"><span class="material-icons-outlined">home</span></a>
+						<li class="px-2" style="margin: auto; scale: 1.7;">
+							<a href="#" style="text-decoration: none;"><i class="ti ti-home-2"></i></a>
 						</li>
-						<li class="px-2" style="margin-left: 15px;">
-							<div class="dropdown">
-							<button class="btn dropdown-toggle title" type="button" data-bs-toggle="dropdown" aria-expanded="false">GIỚI THIỆU</button>
-							<ul class="dropdown-menu" style="border-radius: 0; border: 0; min-width: 215px;">
-								<li><a class="dropdown-item" href="#">Action</a></li>
-								<li><a class="dropdown-item" href="#">Another action</a></li>
-								<li><a class="dropdown-item" href="#">Something else here</a></li>
+						<li class="px-2 dropdown">
+							<a @mouseover="slideMenu1" class="btn title" type="button" data-bs-toggle="dropdown" aria-expanded="false">TRANG CHỦ</a>
+							<ul :class="{ show: sidebar_menu1 }" class="menu-hide1" style="font-size: 12px;">
+								<li style=" font-size: 14px;">Trang chủ<p style="padding-top: 10px;margin-bottom: 0;border-bottom: 1px solid #adadad;"></p></li>
+								<li><a class="dropdown-item title li-title" href="#">Về THACO</a></li>
+								<li><a class="dropdown-item title li-title" href="#">Thông điệp chủ tịch HĐQT</a></li>
+								<li><a class="dropdown-item title li-title" href="#">Văn hóa THACO</a></li>
 							</ul>
-							</div>
-						</li>
-						<li class="px-2">
-							<div class="dropdown">
-							<button class="btn dropdown-toggle title" type="button" data-bs-toggle="dropdown" aria-expanded="false">TRUYỀN THÔNG</button>
-							<ul class="dropdown-menu" style="border-radius: 0; border: 0; min-width: 215px;">
-								<li><a class="dropdown-item" href="#">Action</a></li>
-								<li><a class="dropdown-item" href="#">Another action</a></li>
-								<li>
-								<a class="dropdown-item" href="#">Something else here</a>
-								</li>
-							</ul>
-							</div>
 						</li>
 					</ul>
 				</div>
 				<div>
 					<ul class="list-group list-group-horizontal" style="align-items: center;">
-						<li class="px-2"><button style="border:0; background: none;" ><span class="material-icons-outlined">search</span></button></li>
-						<li class="px-2"><button style="border:0; background: none;" ><span class="material-icons-outlined">chat</span></button></li>
-						<li class="px-2"><button style="border:0; background: none;" ><span class="material-icons-outlined">notifications</span></button></li>
-						<li class="px-2"><button style="border:0; background: none;"><span class="material-icons-outlined">account_circle</span></button></li>
+						<li class="px-2"><button style="border:0; background: none; scale: 1.5"><i class="ti ti-search"></i></button></li>
+						<li class="px-2"><button style="border:0; background: none; scale: 1.5"><i class="ti ti-message-circle-2"></i></button></li>
+						<li class="px-2"><button style="border:0; background: none; scale: 1.5"><i class="ti ti-bell"></i></button></li>
+						<li class="px-2"><button style="border:0; background: none; scale: 1.5"><i class="ti ti-user"></i></button></li>
 					</ul>
 				</div>
 			</div>
@@ -134,39 +113,159 @@
 					<div class="col-lg-3">
 						<div class="card">
 							<div class="card-body" style="height: 300px;">
-								page 1
+								page 5
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-3">
 						<div class="card">
 							<div class="card-body" style="height: 300px;">
-								page 2
+								page 6
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-3">
 						<div class="card">
 							<div class="card-body" style="height: 300px;">
-								page 3
+								page 7
 							</div>
 						</div>
 					</div>
 					<div class="col-lg-3">
 						<div class="card">
 							<div class="card-body" style="height: 300px;">
-								page 4
+								page 8
 							</div>
 						</div>
 					</div>
-					
 				</div>
 			</div>
+			<div class="container-fluid p-4">
+				<div class="row">
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 5
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 6
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 7
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 8
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container-fluid p-4">
+				<div class="row">
+					<div class="col-lg-3">
+						<div class="card">	
+							<div class="card-body" style="height: 300px;">
+								page 5
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 6
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 7
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 8
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="container-fluid p-4">
+				<div class="row">
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 5
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 6
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 7
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 8
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+					<p>Bản quyền Công ty Cổ phần Tập đoàn Trường Hải © 2023</p>
+			</div>
+			<button id="pagetop" class="fixed right-0 bottom-0" v-show="scY > 300" @click="toTop" style="float:  right;border:1px solid black; background-color: white; top: 90%;">
+				<i class="ti ti-arrow-big-up-filled"></i>
+			</button>
 		</div>
 	</div>
 </template>
 
 <style lang="scss">
+	#pagetop {
+		position: fixed;
+		bottom: 20px;
+		height: 50px;
+		width: 50px;
+		right: 30px;
+		z-index: 99;
+		font-size: 18px;
+		border-radius: 99px;
+	}
+	.footer {
+		height: 30px;
+		font-size: 14px; 
+		position:  unset !important;
+		background-color: unset !important;	
+		text-align: inherit !important; 
+		padding-left: 25px;
+	}
     li {
         list-style: none;
     }
@@ -175,9 +274,9 @@
 		color: #707070;
 	}
 
-	.dropdown:hover .dropdown-menu {
-   		display: block;
-   		margin-top: 0; 
+	.list-list-title {
+		padding-left: 25px; 
+		padding-right: 25px;
 	}
 
 	.col-md-auto:hover {
@@ -191,6 +290,14 @@
 
 	.dropdown-toggle::after {
 		border-top: 0;
+	}
+
+	.px-2.dropdown > ul {
+		padding-left: 1rem;
+		padding-right: 1rem;
+		li {
+			padding: 10px;
+		}
 	}
 
 	.accordion-button {
@@ -250,11 +357,31 @@
         }
     }
 
-    .menu-icon {
+	.menu-hide1 {
+		width: 200px;
+		position: absolute;
+        opacity: 0;
+        z-index: -9;
+		top: 58px;
+		left: 0;
+        transition: 0.2s ease-in-out;
+        transform: translateY(20px);
         &.show {
-            display: block;
+			width: 200px;
+			height: 200px;
+			box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+			position: absolute;
+			background-color: white;
+			top: 58px;
+			left: 0;
+            opacity: 1;
+            z-index: 1;
+            transition: 0.2s ease-in-out;
+            transform: translateY(0);
         }
     }
+
+
 </style>
 
 <script>
@@ -264,14 +391,36 @@
         data() {
             return {
                 sidebar_menu: true,
+				sidebar_menu1: false,
+				scTimer: 0,
+        		scY: 0,
             };
         },
-        mounted() {},
+        mounted() {
+			window.addEventListener('scroll', this.handleScroll);
+		},
 
         methods: {
             slideMenu(e) {
                 this.sidebar_menu = !this.sidebar_menu;
             },
-        },
+			slideMenu1(e) {
+                this.sidebar_menu1 = !this.sidebar_menu1;
+            },
+					handleScroll: function () {
+				if (this.scTimer) return;
+				this.scTimer = setTimeout(() => {
+				this.scY = window.scrollY;
+				clearTimeout(this.scTimer);
+				this.scTimer = 0;
+				}, 100);
+			},
+			toTop: function () {
+				window.scrollTo({
+				top: 0,
+				behavior: "smooth"
+				});
+			},
+				}
     };
 </script>
