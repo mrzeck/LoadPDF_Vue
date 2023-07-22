@@ -49,19 +49,20 @@
 			</div>
 		</div>
 		<div class="content flex-grow-1" style="background: #f4f4f4;">
-			<div class="wrapper-content w-100 bg-white d-flex align-items-center justify-content-between sticky-top" style="height: 78px; z-index: 99;">
+			<div class="wrapper-content w-100 bg-white d-flex align-items-center justify-content-between sticky-top" style="height: 78px; z-index: 99; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
 				<div>&nbsp;</div>
 				<div>
 					<ul class="list-group list-group-horizontal">
-						<li class="px-2" style="margin: auto; scale: 1.5;">
+						<li class="px-2" style="margin: auto; scale: 1.7;">
 							<a href="#" style="text-decoration: none;"><i class="ti ti-home-2"></i></a>
 						</li>
 						<li class="px-2 dropdown">
 							<a @mouseover="slideMenu1" class="btn title" type="button" data-bs-toggle="dropdown" aria-expanded="false">TRANG CHỦ</a>
-							<ul :class="{ show: sidebar_menu1 }" class="menu-hide1">
-								<li><a class="dropdown-item" href="#">Action</a></li>
-								<li><a class="dropdown-item" href="#">Another action</a></li>
-								<li><a class="dropdown-item" href="#">Something else here</a></li>
+							<ul :class="{ show: sidebar_menu1 }" class="menu-hide1" style="font-size: 12px;">
+								<li style=" font-size: 14px;">Trang chủ<p style="padding-top: 10px;margin-bottom: 0;border-bottom: 1px solid #adadad;"></p></li>
+								<li><a class="dropdown-item title li-title" href="#">Về THACO</a></li>
+								<li><a class="dropdown-item title li-title" href="#">Thông điệp chủ tịch HĐQT</a></li>
+								<li><a class="dropdown-item title li-title" href="#">Văn hóa THACO</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -137,18 +138,134 @@
 							</div>
 						</div>
 					</div>
-					
 				</div>
 			</div>
-			<div class="container-fluid" style="font-size: 14px;">
-				<p>Bản quyền Công ty Cổ phần Tập đoàn Trường Hải © 2023</p>
+			<div class="container-fluid p-4">
+				<div class="row">
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 5
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 6
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 7
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 8
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
+			<div class="container-fluid p-4">
+				<div class="row">
+					<div class="col-lg-3">
+						<div class="card">	
+							<div class="card-body" style="height: 300px;">
+								page 5
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 6
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 7
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 8
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="container-fluid p-4">
+				<div class="row">
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 5
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 6
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 7
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-3">
+						<div class="card">
+							<div class="card-body" style="height: 300px;">
+								page 8
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+					<p>Bản quyền Công ty Cổ phần Tập đoàn Trường Hải © 2023</p>
+			</div>
+			<button id="pagetop" class="fixed right-0 bottom-0" v-show="scY > 300" @click="toTop" style="float:  right;border:1px solid black; background-color: white; top: 90%;">
+				<i class="ti ti-arrow-big-up-filled"></i>
+			</button>
 		</div>
 	</div>
 </template>
 
 <style lang="scss">
-	
+	#pagetop {
+		position: fixed;
+		bottom: 20px;
+		height: 50px;
+		width: 50px;
+		right: 30px;
+		z-index: 99;
+		font-size: 18px;
+		border-radius: 99px;
+	}
+	.footer {
+		height: 30px;
+		font-size: 14px; 
+		position:  unset !important;
+		background-color: unset !important;	
+		text-align: inherit !important; 
+		padding-left: 25px;
+	}
     li {
         list-style: none;
     }
@@ -177,6 +294,7 @@
 
 	.px-2.dropdown > ul {
 		padding-left: 1rem;
+		padding-right: 1rem;
 		li {
 			padding: 10px;
 		}
@@ -245,17 +363,20 @@
         opacity: 0;
         z-index: -9;
 		top: 58px;
-        transition: 0.3s ease-in-out;
-        transform: translateY(50px);
+		left: 0;
+        transition: 0.2s ease-in-out;
+        transform: translateY(20px);
         &.show {
 			width: 200px;
-			height: 150px;
+			height: 200px;
+			box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 			position: absolute;
 			background-color: white;
 			top: 58px;
+			left: 0;
             opacity: 1;
             z-index: 1;
-            transition: 0.3s ease-in-out;
+            transition: 0.2s ease-in-out;
             transform: translateY(0);
         }
     }
@@ -271,9 +392,13 @@
             return {
                 sidebar_menu: true,
 				sidebar_menu1: false,
+				scTimer: 0,
+        		scY: 0,
             };
         },
-        mounted() {},
+        mounted() {
+			window.addEventListener('scroll', this.handleScroll);
+		},
 
         methods: {
             slideMenu(e) {
@@ -282,6 +407,20 @@
 			slideMenu1(e) {
                 this.sidebar_menu1 = !this.sidebar_menu1;
             },
-        },
+					handleScroll: function () {
+				if (this.scTimer) return;
+				this.scTimer = setTimeout(() => {
+				this.scY = window.scrollY;
+				clearTimeout(this.scTimer);
+				this.scTimer = 0;
+				}, 100);
+			},
+			toTop: function () {
+				window.scrollTo({
+				top: 0,
+				behavior: "smooth"
+				});
+			},
+				}
     };
 </script>
