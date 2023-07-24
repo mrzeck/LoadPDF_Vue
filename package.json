@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@tato30/vue-pdf": "^1.6.2",
     "jquery": "^3.7.0",
     "sass": "^1.64.0",
     "vue": "^3.3.4"
