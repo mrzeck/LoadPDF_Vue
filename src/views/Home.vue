@@ -281,16 +281,24 @@
     import $ from "jquery";
 	import {usePDF, VuePDF} from '@tato30/vue-pdf'
 
-
     export default {
 		components: { VuePDF },
-
+		setup(){
+    const { pdf, pages, info } = usePDF("1.pdf")
+    console.log(`Document has ${pages} pages`)
+    console.log(`Document info: ${info}`)
+    return {
+      pdf
+    }
+  },
         data() {
             return {
                 sidebar_menu: true,
 				sidebar_menu1: false,
 				scTimer: 0,
         		scY: 0,
+				currentPage: 0,
+			pageCount: 0,
             };
         },
         mounted() {
