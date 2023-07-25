@@ -85,29 +85,10 @@
 			</div>
 			<div class="container-fluid p-4">
 				<div class="row">
-					<div class="col-lg-3">
-						<div class="card">
-							<VuePDF :pdf="pdf" :page="1" />
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="card">
-							<div class="card-body">
-								2
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="card">
-							<div class="card-body">
-								3
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3">
-						<div class="card">
-							<div class="card-body">
-								4
+					<div class="col-lg-12">
+						<div class="card align-items-center border-0">
+							<div v-for="page in pages" :key="page">
+								<VuePDF :pdf="pdf" :page="page" />
 							</div>
 						</div>
 					</div>
@@ -279,31 +260,29 @@
 
 <script>
     import $ from "jquery";
-	import {usePDF, VuePDF} from '@tato30/vue-pdf'
+	import { ref } from "vue"
+	import { VuePDF, usePDF } from '@tato30/vue-pdf'
+
 
     export default {
 		components: { VuePDF },
 		setup(){
-    const { pdf, pages, info } = usePDF("1.pdf")
-    console.log(`Document has ${pages} pages`)
-    console.log(`Document info: ${info}`)
-    return {
-      pdf
-    }
-  },
+			const { pdf, pages ,info } = usePDF("1.pdf")
+			// console.log(`${pages} pages`)
+			return {
+				pdf, pages, info
+			}
+		},
         data() {
             return {
                 sidebar_menu: true,
 				sidebar_menu1: false,
 				scTimer: 0,
         		scY: 0,
-				currentPage: 0,
-			pageCount: 0,
             };
         },
         mounted() {
 			window.addEventListener('scroll', this.handleScroll);
-			
 		},
 
         methods: {
