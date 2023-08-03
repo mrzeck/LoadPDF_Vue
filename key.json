@@ -1,13 +1,13 @@
 {
-  "type": "service_account",
-  "project_id": "silver-circuit-384605",
-  "private_key_id": "5c230cac42f802bb2e69df47ddcd37d87a346ae0",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDM5bPIfA7uRXO0\n0quBhecYR67Wo2f+nD1LVsn1T/E/1t6oRubX/Ik9pFvLmUo78cG+NISZ3AOOM2f6\nghdJUvr7QsCUuLzqim86/1zX6C5BIdN/eu2GNac1O8K/ifFE750L54vl9lEWVLA1\nmbJEXshfhyRo/7isIdkvO5/YgYAgVv8qk2qiJg+Cy1crjZT9UBH1Cy55n0TtgJCy\nhIrv02nW5sAWkdJBbLcFYCjsXon0sWj8Vypv/QN9ve+MV6GjJ2JTHL72GfGO5vA+\nWMD2FZ88NPvw0Fr06u4wXivQdawdO5EpB84Qm+eUeWL1R8IsNSUMEh7q1J1v8nKM\ntqxro5/PAgMBAAECggEAEsHOcQKGXWKnQnzsrWlELBFX3JdN7F2CMPTrfRUJ6UWy\n0WXYORqJt8ZljuBkDtPFYDOvleQxwSFMmf6xwgkiJ8FHHvZAeRoeL6Dz72H2ZgkC\nMw/eUaR0v6dOXzlyCFUFI/NY977SUoCDNwzwaFji7/fPqfsK/VsF5lCHhArq30rd\nWY1B/Ok36tK7wuOUYd4I+DbYyFITEmE2KPdm2+wEMmnVh87tA714WlVhA8ZgrKLc\noZ5lzNqmYWFOBKqmqtKF2VPQOGEOpRtANiaYKaOFcvxqOjJZ0m2GEhhd33Evtfy3\nV9Gp/nbEGEUPRLNfGepVEgJ6TKgoml61H6GVY8l6QQKBgQD+8wb2SNHL9Roq7Mqm\n927s3PjoRpVqxCLDPk5m7h1KLT0UCjzGV1tHcthGGoZCUttEeqS3lEya8RK9Xh+h\nfJYeLC0vbM4q27+J4LyAq4DI+gG8eQVeJoISHg6fUYsaNN9509OZ6LzZ9yc+fg3i\nN19CdVgBy2Gg48Y9BfOMRUiUQQKBgQDNvd6zHBE3ByrzNhBCCvtqVlBRHaU9iuCK\n3AaHM33WKpF1h+gzzcy7mQcy+BpxMT/jq4izBf+t/nZacO0qAuMUPWUNFdGL2cDp\n7BK7pBh9/rOiLkTPaiQjqsYsY6XB99+bptTt2eFgTtKJF6OI5Zrk5lOFd5YX0AbE\nKJSHX+bwDwKBgQCMvfbi8RI4SOeYOL4q7D9lLRuPhp+nn/0c0YGQmvS6ZTzpmjkw\nuTrft4ujL7NcW8dGB3p1Cb48bscMmTBXAqMQpwyOuL8bs9IKOHF3irX+vN1GgXyw\nHAwEGmmyE975qaSQ6ZpPxcazgRg+DHJ3pl/FHWhnHTKZEgT23Rk1H25QwQKBgQCY\nGzu+J44CpOX4EYxLh1sA7vdKQSSdL0N65dhdtI/f+nC399aQFiK6vxQ3dn32GXcm\nlvblhBXXST2u97YfTSsdF5bR6cOWJVMenk3rNBJ3dArSaGqu/cXiKKuCvdkaYmuK\n4/igMGkTjrLQcA2TdEzj1fUBw7vPtxiJhYbp3tkZuQKBgFG5sG51ndm/FWAD+NC+\nYJTkC6pTY7EGN9RDzssUeJW1LTqfP6nmAH9nDzPr3zGsUknbgs1UnUW0HUx1gAHe\nbNbUJ0qO5MfF0LG7RMlhODdhZIzHBatXBQsui4fJ6djbzJ6sqMTZ0vBHwaUvT6JR\n5404BS2Yqq/OnZk8BqNsTass\n-----END PRIVATE KEY-----\n",
-  "client_email": "google-drive-api@silver-circuit-384605.iam.gserviceaccount.com",
-  "client_id": "111873714379860293960",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://oauth2.googleapis.com/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/google-drive-api%40silver-circuit-384605.iam.gserviceaccount.com",
-  "universe_domain": "googleapis.com"
+  "web": {
+    "client_id": "394979961671-0jaoq3am5vubn1cl46vm51e9qvloh009.apps.googleusercontent.com",
+    "project_id": "warm-castle-394106",
+    "client_email": "tuongvutbtcv@warm-castle-394106.iam.gserviceaccount.com",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_secret": "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",
+    "redirect_uris": ["https://abcproject.dev.com"],
+    "javascript_origins": ["https://abcproject.dev.com"]
+  }
 }

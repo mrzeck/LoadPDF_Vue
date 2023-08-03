@@ -21,10 +21,12 @@
 							</h2>
 							<div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
 							<div class="">
-								<ul class="list-group padding-left20">
-									<li class="list-group-item"><a class="link_li li-title" href="#">An item</a></li>
-									<li class="list-group-item"><a class="link_li li-title" href="#">A second item</a></li>
-									<li class="list-group-item"><a class="link_li li-title" href="#">A third item</a></li>
+								<ul class="list-group padding-left20" v-for="(item, index) in listFolder" :key="index">
+									<li class="list-group-item cursor-pointer">
+										<a class="li-title" style="text-decoration: none;">
+											{{item.name}}
+										</a>
+									</li>
 								</ul>
 							</div>
 							</div>
@@ -83,29 +85,59 @@
 					</ul>
 				</div>
 			</div>
+
+			<section>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-3" v-for="(item, index) in listFolder" :key="index">
+							<div class="card cursor-pointer">
+								<div class="card-body">
+									<h6 class="fw-bold" :id="item.id" @click="getDataPDF(item.id)">{{item.name}}</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<section>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-lg-3" v-for="(item, index) in listFile" :key="index">
+							<div class="card cursor-pointer" @click="loadPDF(item.id)">
+								<div class="card-body">
+									<h6 class="fw-bold">{{item.name}}</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
 			<div class="container-fluid p-4">
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="card align-items-center border-0">
-							<div v-for="page in pages" :key="page">
-								<VuePDF :pdf="pdf" :page="page" />
-							</div>
+							<iframe :src="pdf" style="height:800px; width: 100%;"></iframe>
 						</div>
 					</div>
 				</div>
 			</div>
 			
-			<div class="footer">
+			<!-- <div class="footer">
 					<p>Bản quyền Công ty Cổ phần Tập đoàn Trường Hải © 2023</p>
-			</div>
-			<button id="pagetop" class="fixed right-0 bottom-0 bg-white float-end" v-show="scY > 300" @click="toTop" style="border:1px solid black; top: 90%;">
-				<i class="ti ti-arrow-big-up-filled"></i>
-			</button>
+			</div> -->
 		</div>
 	</div>
 </template>
 
 <style lang="scss">
+
+
+	.cursor-pointer{
+		cursor: pointer;
+	}
 
 	#pagetop {
 		position: fixed;
@@ -258,54 +290,104 @@
 
 </style>
 
+
 <script>
     import $ from "jquery";
-	import { ref } from "vue"
-	import { VuePDF, usePDF } from '@tato30/vue-pdf'
-
-
+	import { ref,	reactive } from "vue"
+	import axios from "axios"
     export default {
-		components: { VuePDF },
-		setup(){
-			const { pdf, pages ,info } = usePDF("1.pdf")
-			// console.log(`${pages} pages`)
-			return {
-				pdf, pages, info
-			}
-		},
+
         data() {
             return {
+				listFile : {},
+				listFolder: {},
+				pdf: '',
+				id:'',
+				access_token: '',
                 sidebar_menu: true,
 				sidebar_menu1: false,
 				scTimer: 0,
         		scY: 0,
             };
         },
-        mounted() {
-			window.addEventListener('scroll', this.handleScroll);
+	
+        async mounted() {
+			await this.getAccessToken();
+			await this.getDataFolder();
 		},
 
         methods: {
             slideMenu(e) {
                 this.sidebar_menu = !this.sidebar_menu;
             },
+
+			async getAccessToken() {
+				const url_tk = "https://oauth2.googleapis.com/token";
+				const data = {
+					client_id: '394979961671-0jaoq3am5vubn1cl46vm51e9qvloh009.apps.googleusercontent.com',
+					client_secret: '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',
+					grant_type: "refresh_token",
+					refresh_token: "1//0elqWRci65w3eCgYIARAAGA4SNwF-L9Ir-BJ4eYJW8pA-SHhQW6rWV1Et4mQbc4BUcQlq6qOWYFiiT9-o-3rZsakdLpLM5tPLHG4"
+				};
+
+				try {
+					const response = await axios.post(url_tk , data)
+					const get_accessToken = response.data.access_token
+					this.access_token = get_accessToken
+					return get_accessToken;
+				} catch (error) {
+					console.error("Error getting access token:", error);
+				}
+			},
+
+			async getDataFolder() {
+				const accessToken = this.access_token;
+				const url = `https://www.googleapis.com/drive/v3/files`
+				const headers = {Authorization: `Bearer ${accessToken}`}
+				const parentId = "1spUWO5ycVrjvim42OTnsGbkqy-FJhSKz"
+				try {
+					const parentResponse = await axios.get(url , { 	headers: headers,
+						params: {
+							q: `'${parentId}' in parents and trashed=false`,
+							fields: "files",
+						}
+					})
+					this.files = await parentResponse.data.files.filter((file) => file.mimeType === "application/vnd.google-apps.folder");
+					this.listFolder = this.files;
+				} catch (error) {
+				console.error("Error fetching files:", error);
+				}
+			},
+
+			async getDataPDF(id){
+			
+				const accessToken = this.access_token;
+				const url = `https://www.googleapis.com/drive/v3/files`
+				const headers = {Authorization: `Bearer ${accessToken}`}
+				const parentId = id
+				try {
+					const parentResponse = await axios.get(url , { 	headers: headers,
+						params: {
+							q: `'${parentId}' in parents and trashed=false`,
+							fields: "files(id, name, webViewLink ,createdTime)",
+						}
+					})
+					
+					this.files = parentResponse.data.files
+					this.listFile = this.files
+
+				} catch (error) {
+				console.error("Error fetching files:", error);
+				}
+			},
+				
+			loadPDF(e){
+				this.pdf = "https://drive.google.com/file/d/" + e + "/preview"
+			},
+
 			slideMenu1(e) {
                 this.sidebar_menu1 = !this.sidebar_menu1;
             },
-					handleScroll: function () {
-				if (this.scTimer) return;
-				this.scTimer = setTimeout(() => {
-				this.scY = window.scrollY;
-				clearTimeout(this.scTimer);
-				this.scTimer = 0;
-				}, 100);
-			},
-			toTop: function () {
-				window.scrollTo({
-				top: 0,
-				behavior: "smooth"
-				});
-			},
-		}
+		},
     };
 </script>
