@@ -10,15 +10,20 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@popperjs/core": "^2.11.8",
     "axios": "^1.4.0",
-    "googleapis": "^123.0.0",
+    "bootstrap": "^5.3.1",
+    "feather-icons": "^4.29.0",
     "jquery": "^3.7.0",
-    "sass": "^1.64.0",
+    "moment": "^2.29.4",
     "vue": "^3.3.4",
-    "vue-router": "^4.0.13"
+    "vue-feather": "^2.0.0",
+    "vue-router": "^4.0.13",
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
+    "sass": "^1.64.2",
     "vite": "^4.4.0"
   }
 }
