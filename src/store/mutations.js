@@ -1,8 +1,11 @@
 export default {
-    setTitle(state, title){ 
-        state.folder = title;
+    setFolder(state, data){ 
+        state.folder = data;
     },
-    // setLoggedUser(state,data){
-    //     state.authorize.user_info = data;
-    // }
+    setAccessToken(state,data){
+        state.accessToken = data;
+    },
+    setFiles(state,data){
+        state.files = data;
+    }
 }

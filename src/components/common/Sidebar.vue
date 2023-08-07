@@ -10,16 +10,19 @@
 
             <div style="padding-top:78px">
                 <div class="p-3">
-                    <div class="card mb-3" v-for="(item, index) in this.folder" :key="index">
+                    <div class="card mb-3" 
+                    v-for="(item, index) in this.folder" 
+                    @click="getFile(item.id)"
+                    :key="index"
+                    >
                         <div class="card-body py-2">
-
-
-                            {{formattedDate}}
+                            <div class="d-flex align-items-center">
+                                <span class="material-symbols-outlined me-3 bg-primary bg-gradient p-1 rounded-3 fs-4 text-white">folder_open</span>
+                                <p class="d-flex fw-bold mb-0">{{item.name}}</p>
+                            </div>
                         </div>
                     </div>
-                    
                 </div>
-                
             </div>
         </div>
     </section>
@@ -29,30 +32,36 @@
 import VueFeather from 'vue-feather';
 import { mapActions, mapGetters, mapMutations } from 'vuex';
 import moment from 'moment';
+import axios from "axios";
 
 export default {
-
     data(){
         return{
             folders : {}
         }
     },
-
     components: {VueFeather},
     computed:{
-        ...mapGetters(['folder']),
-
-        formattedDate() {
-
-            const abc = this.folder.map(item => {
-                return{
-                    ...item,
-                    createdTime: moment(item.createdTime).format('DD-MM-YYYY hh:mm:ss'),
-                }
-            })
-            return abc
-            // return moment(this.folder.createdTime).format('DD/MM/YYYY hh:mm:ss');
-        }
+        ...mapGetters(['folder','accessToken']),
+    },
+    methods:{
+        ...mapMutations(['setFiles']),
+        async getFile(id){
+            const url = `https://www.googleapis.com/drive/v3/files`
+            const headers = {Authorization: `Bearer ${this.accessToken}`}
+            const parentId = id
+            try {
+                const parentResponse = await axios.get(url , { 	headers: headers,
+                    params: {
+                        q: `'${parentId}' in parents and trashed=false`,
+                        fields: "files(id, name, webViewLink ,createdTime)",
+                    }
+                })
+                this.setFiles(parentResponse.data.files)
+            } catch (error) {
+            console.error("Error fetching files:", error);
+            }
+        },
     },
 }
 </script>

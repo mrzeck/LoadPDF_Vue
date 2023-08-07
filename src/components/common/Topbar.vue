@@ -6,7 +6,8 @@
                 <div>
                     <ul class="list-inline mb-0 d-flex align-items-center">
                         <li class="list-inline-item px-3 d-flex">
-                            <VueFeather type="home" stroke-width="1"></VueFeather>
+                            <router-link to="/"><VueFeather type="home" stroke-width="1"></VueFeather></router-link>
+                            
                         </li>
                         <li class="list-inline-item px-3">GIỚI THIỆU</li>
                         <li class="list-inline-item px-3">TRUYỀN THÔNG</li>

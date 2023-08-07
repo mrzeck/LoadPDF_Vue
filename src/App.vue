@@ -22,7 +22,11 @@ export default {
       <div class="flex-grow-1">
           <Topbar></Topbar>
           <section class="p-4">
-            <HomePage></HomePage>
+            <router-view v-slot="{ Component, route }">
+              <transition name="fade">
+                <component :is="Component" />
+              </transition>
+            </router-view>
           </section>
       </div>
   </div>
