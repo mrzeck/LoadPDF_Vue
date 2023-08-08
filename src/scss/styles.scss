@@ -3,3 +3,19 @@
 body{
     background:#f4f4f4;
 }
+.cursor-pointer{cursor: pointer;}
+.custom-hover{
+    transition: .3s ease-in-out;
+}
+.custom-hover:hover{
+    transition: .3s ease-in-out;
+    transform: translateY(-5px);
+    box-shadow: 0px 15px 10px -10px #959595;
+}
+
+.preloader{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+}

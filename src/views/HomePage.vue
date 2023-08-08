@@ -6,10 +6,15 @@
 				v-for="(item, index) in this.file" 
 				:key="index"
 				@click="viewFile(item.id)">
-                    <div class="card h-100">
-						<div class="card-body text-center">
-							<span class="material-symbols-outlined display-1 text-success">description</span>
-							<div class="fw-light">{{item.name}}</div>
+                    <div class="card h-100 cursor-pointer custom-hover">
+						<div class="card-body text-center p-2">
+							<div class="d-flex mb-3">
+								<span class="material-symbols-outlined text-success me-1">description</span>
+								<div class="fw-light text-truncate" :title="item.name">{{item.name}}</div>
+							</div>
+							<div class="">
+								<img class="w-100 object-fit-cover" height="180" :src="item.thumbnailLink" alt="" srcset="">
+							</div>
 						</div>
                     </div>
                 </div>
@@ -21,13 +26,10 @@
 
 <script>
     import Header from '../components/layouts/Header.vue';
-    import $ from "jquery";
-	import { ref,	reactive } from "vue"
 	import axios from "axios"
     import { mapActions, mapGetters, mapMutations } from 'vuex';
 	import { useRouter } from 'vue-router';
     export default {
-
         data() {
             return {
 				listFile : {},
@@ -41,11 +43,9 @@
         		scY: 0,
             };
         },
-
         computed:{
             ...mapGetters(['folder','file']),
         },
-	
         async mounted() {
 			await this.getAccessToken();
 			await this.getDataFolder();
@@ -110,7 +110,7 @@
 					const parentResponse = await axios.get(url , { 	headers: headers,
 						params: {
 							q: `'${parentId}' in parents and trashed=false`,
-							fields: "files(id, name, webViewLink ,createdTime)",
+							fields: "files(id, name, webViewLink ,createdTime, thumbnailLink)",
 						}
 					})
 					

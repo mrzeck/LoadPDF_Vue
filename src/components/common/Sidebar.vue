@@ -10,7 +10,7 @@
 
             <div style="padding-top:78px">
                 <div class="p-3">
-                    <div class="card mb-3" 
+                    <div class="card mb-3 cursor-pointer custom-hover" 
                     v-for="(item, index) in this.folder" 
                     @click="getFile(item.id)"
                     :key="index"
@@ -47,6 +47,7 @@ export default {
     methods:{
         ...mapMutations(['setFiles']),
         async getFile(id){
+            this.$router.replace('/');
             const url = `https://www.googleapis.com/drive/v3/files`
             const headers = {Authorization: `Bearer ${this.accessToken}`}
             const parentId = id
@@ -54,7 +55,7 @@ export default {
                 const parentResponse = await axios.get(url , { 	headers: headers,
                     params: {
                         q: `'${parentId}' in parents and trashed=false`,
-                        fields: "files(id, name, webViewLink ,createdTime)",
+                        fields: "files(id, name, webViewLink ,createdTime, thumbnailLink)",
                     }
                 })
                 this.setFiles(parentResponse.data.files)

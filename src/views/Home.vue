@@ -360,7 +360,6 @@
 			},
 
 			async getDataPDF(id){
-			
 				const accessToken = this.access_token;
 				const url = `https://www.googleapis.com/drive/v3/files`
 				const headers = {Authorization: `Bearer ${accessToken}`}
