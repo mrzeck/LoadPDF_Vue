@@ -5,6 +5,11 @@ import HomePage from './views/HomePage.vue'
 
 import SlideBar from './components/common/Sidebar.vue'
 import Topbar from './components/common/Topbar.vue'
+<<<<<<< Updated upstream
+=======
+import Preloader from "./components/elements/Preloader.vue";
+
+>>>>>>> Stashed changes
 
 export default {
   components: {
