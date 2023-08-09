@@ -6,10 +6,7 @@ import HomePage from './views/HomePage.vue'
 import SlideBar from './components/common/Sidebar.vue'
 import Topbar from './components/common/Topbar.vue'
 import Preloader from "./components/elements/Preloader.vue";
-
-
-
-
+import Preloader from "./components/elements/Preloader.vue";
 export default {
   components: {
     Home, HomePage, SlideBar, Topbar, Preloader
